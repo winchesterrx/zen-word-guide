@@ -62,49 +62,51 @@ export function ReflectionModal({ open, onClose }: Props) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-up">
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-[var(--sage-deep)]/70 backdrop-blur-md"
+        className="absolute inset-0 bg-[var(--ink)]/85 backdrop-blur-xl"
       />
       <div
         key={key}
-        className="relative w-full max-w-xl bg-[var(--background)] rounded-3xl overflow-hidden shadow-[var(--shadow-glow)] animate-fade-up"
+        className="relative w-full max-w-xl glass-card rounded-3xl overflow-hidden ring-glow animate-fade-up"
       >
-        <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[var(--sand)] to-transparent pointer-events-none" />
+        {/* Glow halo */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-[var(--gold)]/30 blur-[100px] pointer-events-none" />
+
         <button
           onClick={onClose}
           aria-label="Fechar"
-          className="absolute top-5 right-5 w-9 h-9 rounded-full grid place-items-center hover:bg-[var(--sand)] transition-colors text-[var(--sage-deep)]"
+          className="absolute top-5 right-5 z-10 w-9 h-9 rounded-full grid place-items-center glass hover:bg-white/15 transition-colors text-white"
         >
           <X className="w-4 h-4" strokeWidth={1.75} />
         </button>
 
         <div className="relative px-10 pt-14 pb-10">
-          <div className="flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase text-[var(--gold)] mb-6">
+          <div className="flex items-center gap-2 text-[11px] tracking-[0.3em] uppercase text-[var(--gold)] mb-6">
             <span className="w-6 h-px bg-[var(--gold)]" />
             Reflexão do Dia
           </div>
 
-          <blockquote className="font-serif text-3xl md:text-4xl text-[var(--sage-deep)] leading-tight italic text-balance">
+          <blockquote className="font-serif text-3xl md:text-4xl text-white leading-tight italic text-balance">
             {r.verse}
           </blockquote>
-          <p className="mt-4 text-sm text-[var(--sage)] tracking-wide">— {r.ref}</p>
+          <p className="mt-4 text-sm text-[var(--gold)] tracking-wide">— {r.ref}</p>
 
-          <div className="mt-8 pt-8 border-t border-[var(--border)]">
-            <p className="text-[11px] tracking-[0.25em] uppercase text-[var(--sage)] mb-3">
+          <div className="mt-8 pt-8 border-t border-white/10">
+            <p className="text-[11px] tracking-[0.3em] uppercase text-white/50 mb-3">
               Aplicação Prática
             </p>
-            <p className="text-[var(--foreground)] leading-relaxed">{r.application}</p>
+            <p className="text-white/85 leading-relaxed">{r.application}</p>
           </div>
 
           <div className="mt-10 flex items-center justify-between">
             <button
               onClick={next}
-              className="inline-flex items-center gap-2 text-sm text-[var(--sage-deep)] hover:text-[var(--gold)] transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-[var(--gold)] transition-colors"
             >
               <RefreshCw className="w-3.5 h-3.5" strokeWidth={1.75} />
               Outra reflexão
             </button>
-            <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--sage-deep)] text-[var(--background)] text-sm hover:bg-[var(--foreground)] transition-colors">
-              <Bookmark className="w-3.5 h-3.5" strokeWidth={1.75} />
+            <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[var(--gold-soft)] to-[var(--gold)] text-[var(--ink)] text-sm font-medium hover:shadow-[var(--shadow-glow)] transition-all">
+              <Bookmark className="w-3.5 h-3.5" strokeWidth={2} />
               Salvar
             </button>
           </div>
