@@ -38,11 +38,15 @@ export function MentorHeader({ onCartOpen, cartCount }: Props) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-10 text-sm text-white/85">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="gold-underline pb-1 hover:text-white">
-              {l.label}
-            </a>
-          ))}
+          <a href="/#proposito" className="gold-underline pb-1 hover:text-white">
+            Propósito
+          </a>
+          <Link to="/produtos" className="gold-underline pb-1 hover:text-white [&.active]:text-gold">
+            Produtos
+          </Link>
+          <a href="/#blog" className="gold-underline pb-1 hover:text-white">
+            Reino
+          </a>
         </nav>
 
         <button
